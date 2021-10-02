@@ -1,5 +1,5 @@
 import addPassword from "./module-1";
-console.log(addPassword(false));
+console.log(addPassword('q'));
 
 // import {
 //     x as value, 
@@ -8,5 +8,9 @@ console.log(addPassword(false));
 
 // console.log(value ,y);
 
-import * as moduleAll from "./module-2";
-console.table(moduleAll);
+// import * as moduleAll from "./module-2";
+// console.table(moduleAll);
+import {addUser} from "./module-2";
+
+addUser('mango');
+// console.log(addUser('mango'));
