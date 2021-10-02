@@ -1,0 +1,33 @@
+{
+  "name": "tutorial-work",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "web": "webpack",
+    "serve": "webpack serve",
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alazardovich/tutorial-work.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alazardovich/tutorial-work/issues"
+  },
+  "homepage": "https://github.com/Alazardovich/tutorial-work#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "webpack": "^5.56.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.3.0"
+  },
+  "dependencies": {
+    "joi": "^17.4.2",
+    "shortid": "^2.2.16"
+  }
+}
