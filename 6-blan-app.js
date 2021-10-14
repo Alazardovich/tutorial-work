@@ -4,45 +4,29 @@ const nameRef = document.querySelector('.js-feedback-name');
 const emailRef = document.querySelector('.js-feedback-email');
 
 const elements = formRefs.elements;
+const elForm = Object.values(elements);
+console.log(elForm);
 
-for (let i = 0; i < elements.length; i++) {
-    if (elements[i].name !== 'password' && elements[i].name !== '') {
-        
-    elements[i].addEventListener('input', onTextareaInput);
+elForm.forEach(el => {
+    if(el.name !== "password" && el.name !=="") {
+        el.addEventListener('input', getInputValue);
     }
-    getFromLocalStorage(elements[i].name);
- 
-}
+    getFromLocalStorage(el.name, el);
+})
 
-function onFormSubmit(evt){
+function onFormSubmit(evt) {
     evt.preventDefault();
     const form = evt.target;
-    // console.log(form.elements);
-    const getLocal = localStorage.getItem('message');
-
-if (getLocal) {
-    localStorage.removeItem('message')
+    elForm.forEach((el) => {
+        console.log(el);
+        const getLocal = localStorage.getItem(el.name);
+        if (getLocal) {
+            localStorage.removeItem(el.name)
     form.reset();
+      }
+    })
 }
 
-}
-
-
-function onTextareaInput(evt) {
-
-const textValue = evt.target.value;
-localStorage.setItem('message', textValue);
-// console.log(evt.target.name);
-// console.log(evt.target.placeholder);
-// console.log(evt.target.cols);
-}
-
-function getFromLocalStorage (){
-   const message = localStorage.getItem('message');
-if (message) {
-    textAreaRef.textContent = message; 
-}
-}
 function getInputValue(elentName) {
     let inputText = elentName.target.value;
     saveToLS(elentName.target.name, inputText);
@@ -52,10 +36,10 @@ function saveToLS(key, itemValue) {
     localStorage.setItem(key, JSON.stringify(itemValue));
 }
 
-function getFromLocalStorage(formElem) {
-    const keyFromLS = localStorage.getItem(formElem.name);
+function getFromLocalStorage(key, obj) {
+    const keyFromLS = localStorage.getItem(key);
     if (keyFromLS) {
-        formElem.value = JSON.parse(keyFromLS);
+        obj.value = JSON.parse(keyFromLS);
     }
 }
 
@@ -64,3 +48,18 @@ formRefs.addEventListener('submit', onFormSubmit);
 
 // textAreaRef.addEventListener('input', onTextareaInput);
 
+// function onTextareaInput(evt) {
+
+// const textValue = evt.target.value;
+// localStorage.setItem(evt.target.name, textValue);
+// // console.log(evt.target.name);
+// // console.log(evt.target.placeholder);
+// // console.log(evt.target.cols);
+// }
+
+// function getFromLocalStorage (){
+//    const  = localStorage.getItem('');
+// if () {
+//     textAreaRef.textContent = ; 
+// }
+// }
