@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Alazardovich/tutorial-work/issues"
   },
-  "homepage": "https://github.com/Alazardovich/tutorial-work#readme",
+  "homepage": "https://alazardovich.github.io/tutorial-work/",
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "webpack": "^5.56.0",
